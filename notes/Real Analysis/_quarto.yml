@@ -4,7 +4,6 @@ project:
 
 book:
   title: "Real Analysis"
-  author: "Thomas (Yanle) Li"
   search: true
   page-navigation: true
   chapters:
@@ -13,8 +12,10 @@ book:
     - Real-Numbers/real-numbers.qmd
     - Sequences-Series/sequences-series.qmd
     - Continuous-Functions/continuous-functions.qmd
+  sidebar:
+    style: docked
   page-footer:
-    left: "[Thomas (Yanle) Li](/)"
+    left: "[Thomas' homepage](https://thomaslylyll.github.io/)"
 
 format:
   html:
@@ -23,6 +24,8 @@ format:
 
 filters:
   - linebreaks.lua
+  - at: post-render
+    path: numbering.lua
 
 crossref:
-  chapters: true   # Theorem 3.2 = second theorem of chapter 3
+  chapters: true   # results numbered by chapter, e.g. 3.2; numbering.lua makes all kinds share one counter

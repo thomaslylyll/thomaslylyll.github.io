@@ -58,3 +58,13 @@ $example-rule: #9a9486;
 .aa-Form, .aa-Panel { background-color: $paper-dark; }
 
 hr { opacity: 0.2; }
+
+// Landing page: centred contents list
+main:has(.landing) #title-block-header { text-align: center; }
+
+.landing {
+  width: fit-content;
+  margin: 1.5rem auto 0;
+
+  ol { padding-left: 1.4rem; font-size: 1.1rem; line-height: 2; }
+}

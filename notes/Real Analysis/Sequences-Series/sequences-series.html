@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9bdc7be5b9f85528916ff27676c544f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0970e7028e5f0ef0218f96849819c950.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +108,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating quarto-light">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -129,7 +129,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Real Analysis</a> 
@@ -219,7 +219,7 @@ window.Quarto = {
 <p><span class="theorem-title"><strong>Definition 3.1 (Convergence)</strong></span> <span class="math inline">\(x_n \to x\)</span> if <span class="math inline">\(\forall \varepsilon &gt; 0\)</span>, <span class="math inline">\(\exists\, N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n \geq N\)</span>, <span class="math inline">\(|x_n - x| \leq \varepsilon\)</span>.</p>
 </div>
 <div id="thm-monotone-convergence" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.1 (Monotone Convergence)</strong></span> A monotone sequence <span class="math inline">\(\{x_n\}_{n=1}^{\infty}\)</span> is bounded iff it is convergent.</p>
+<p><span class="theorem-title"><strong>Theorem 3.2 (Monotone Convergence)</strong></span> A monotone sequence <span class="math inline">\(\{x_n\}_{n=1}^{\infty}\)</span> is bounded iff it is convergent.</p>
 <p>If <span class="math inline">\(\{x_n\}\)</span> is increasing then <span class="math inline">\(\lim x_n = \sup\{x_n : n \in \mathbb{N}\}\)</span>.<br>
 If <span class="math inline">\(\{x_n\}\)</span> is decreasing then <span class="math inline">\(\lim x_n = \inf\{x_n : n \in \mathbb{N}\}\)</span>.</p>
 </div>
@@ -231,7 +231,7 @@ Then, <span class="math inline">\(\forall n \geq M\)</span>, <span class="math i
 The inverse direction of convergent <span class="math inline">\(\Rightarrow\)</span> bounded is true for sequences in general. <span style="float: right;"><span class="math inline">\(\square\)</span></span></p>
 </div>
 <div id="def-limsup-liminf" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 (liminf, limsup)</strong></span> limsup: <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 3.3 (liminf, limsup)</strong></span> limsup: <span class="math display">\[
 \limsup_{n\to\infty} x_n := \lim_{n\to\infty} \sup\{x_k : k \geq n\} = \inf_{n \in \mathbb{N}} \sup\{x_k : k \geq n\}
 \]</span></p>
 <p>liminf: <span class="math display">\[
@@ -239,7 +239,7 @@ The inverse direction of convergent <span class="math inline">\(\Rightarrow\)</s
 \]</span></p>
 </div>
 <div id="thm-limsup-subsequence" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.2</strong></span> If <span class="math inline">\(\{x_n\}\)</span> is bounded, then it has a subsequence that converges to <span class="math inline">\(\limsup x_n\)</span> and a subsequence that converges to <span class="math inline">\(\liminf x_n\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 3.4</strong></span> If <span class="math inline">\(\{x_n\}\)</span> is bounded, then it has a subsequence that converges to <span class="math inline">\(\limsup x_n\)</span> and a subsequence that converges to <span class="math inline">\(\liminf x_n\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (for limsup). </span>Define <span class="math inline">\(a_n := \sup\{x_k : k \geq n\}\)</span>. Write <span class="math inline">\(x := \limsup\limits_{n\to\infty} x_n = \lim\limits_{n\to\infty} a_n\)</span>.<br>
@@ -268,7 +268,7 @@ Thus, <span class="math inline">\(\forall k \geq 2\)</span>, <span class="math d
 \]</span> <span style="display: block; text-align: right;"><span class="math inline">\(\square\)</span></span></p>
 </div>
 <div id="thm-bolzano-weierstrass" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3.3 (Bolzano-Weierstrass)</strong></span> If <span class="math inline">\(\{x_n\}\)</span> is bounded, then there exists a convergent subsequence <span class="math inline">\(\{x_{n_i}\}\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 3.5 (Bolzano-Weierstrass)</strong></span> If <span class="math inline">\(\{x_n\}\)</span> is bounded, then there exists a convergent subsequence <span class="math inline">\(\{x_{n_i}\}\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Following the <a href="#thm-limsup-subsequence" class="quarto-xref">previous thm</a> on bounded sequences, we know that there exist subsequences that converge to <span class="math inline">\(\limsup x_n\)</span> and <span class="math inline">\(\liminf x_n\)</span>. <span style="float: right;"><span class="math inline">\(\square\)</span></span></p>
@@ -285,36 +285,36 @@ We take <span class="math inline">\(n_1 = 1\)</span>, i.e.&nbsp;<span class="mat
 <p>Let <span class="math inline">\(x = \lim a_i = \sup\{a_i\}\)</span> and <span class="math inline">\(y = \lim b_i = \inf\{b_i\}\)</span>. Since <span class="math inline">\(a_i &lt; b_i\)</span> <span class="math inline">\(\forall i\)</span>, <span class="math inline">\(x \leq y\)</span>. Also, as the distance between <span class="math inline">\(a_i\)</span> &amp; <span class="math inline">\(b_i\)</span> is always decreasing, <span class="math inline">\(\forall i\)</span>, <span class="math inline">\(y - x \leq b_i - a_i = \frac{b_1 - a_1}{2^{i-1}}\)</span>. For all <span class="math inline">\(\varepsilon &gt; 0\)</span>, we can always find <span class="math inline">\(i \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\frac{b_1 - a_1}{2^{i-1}} \leq \varepsilon\)</span>. Thus, <span class="math inline">\(y - x = 0\)</span>, and the 2 limits are equal. <span style="float: right;"><span class="math inline">\(\square\)</span></span></p>
 </div>
 <div id="def-cauchy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.3 (Cauchy sequence)</strong></span> A sequence <span class="math inline">\(\{x_n\}\)</span> is a cauchy sequence if <span class="math inline">\(\forall \varepsilon &gt; 0\)</span> <span class="math inline">\(\exists\, N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n, k \geq N\)</span>, <span class="math inline">\(|x_n - x_k| &lt; \varepsilon\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 3.6 (Cauchy sequence)</strong></span> A sequence <span class="math inline">\(\{x_n\}\)</span> is a cauchy sequence if <span class="math inline">\(\forall \varepsilon &gt; 0\)</span> <span class="math inline">\(\exists\, N \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n, k \geq N\)</span>, <span class="math inline">\(|x_n - x_k| &lt; \varepsilon\)</span>.</p>
 </div>
 <p>Cauchy sequences are bounded and convergent.</p>
 </section>
 <section id="series" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="series"><span class="header-section-number">3.2</span> Series</h2>
 <div id="def-series" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.4 (Series)</strong></span> A series converges if the sequence of its partial sums converges. <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 3.7 (Series)</strong></span> A series converges if the sequence of its partial sums converges. <span class="math display">\[
 \sum_{n=1}^{\infty} x_n = \lim_{k\to\infty} \sum_{n=1}^{k} x_n
 \]</span></p>
 </div>
 <div id="exm-geometric-series" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.1 (Geometric Series)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 3.8 (Geometric Series)</strong></span> &nbsp;</p>
 <ul>
 <li>partial sum: <span class="math inline">\(\displaystyle\sum_{n=0}^{k-1} r^n = \frac{1 - r^k}{1 - r}\)</span></li>
 <li>Convergence: <span class="math inline">\(-1 &lt; r &lt; 1\)</span>, <span class="math inline">\(\displaystyle\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}\)</span>.</li>
 </ul>
 </div>
 <div id="exm-p-series" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.2 (P-Series)</strong></span> <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}\)</span></p>
+<p><span class="theorem-title"><strong>Example 3.9 (P-Series)</strong></span> <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}\)</span></p>
 <ul>
 <li><span class="math inline">\(p &gt; 1\)</span>: converges</li>
 <li><span class="math inline">\(p \leq 1\)</span>: diverges</li>
 </ul>
 </div>
 <div id="def-cauchy-series" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.5 (Cauchy series)</strong></span> A series whose sequence of partial sums form a cauchy sequence.</p>
+<p><span class="theorem-title"><strong>Definition 3.10 (Cauchy series)</strong></span> A series whose sequence of partial sums form a cauchy sequence.</p>
 </div>
 <div id="prp-cauchy-series" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 3.1</strong></span> A series <span class="math inline">\(\sum_{n=1}^{\infty} x_n\)</span> is convergent iff <span class="math inline">\(\forall \varepsilon &gt; 0\)</span>, <span class="math inline">\(\exists\, M \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n \geq M\)</span> and <span class="math inline">\(k &gt; n\)</span>, <span class="math inline">\(\left|\sum_{i=n+1}^{k} x_i\right| &lt; \varepsilon\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 3.11</strong></span> A series <span class="math inline">\(\sum_{n=1}^{\infty} x_n\)</span> is convergent iff <span class="math inline">\(\forall \varepsilon &gt; 0\)</span>, <span class="math inline">\(\exists\, M \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n \geq M\)</span> and <span class="math inline">\(k &gt; n\)</span>, <span class="math inline">\(\left|\sum_{i=n+1}^{k} x_i\right| &lt; \varepsilon\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>All convergent series are <a href="#def-cauchy-series" class="quarto-xref">cauchy</a>. Then, we have an <span class="math inline">\(M \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall n, k \geq M\)</span>, <span class="math inline">\(k &gt; n\)</span>, <span class="math display">\[
@@ -324,7 +324,7 @@ We take <span class="math inline">\(n_1 = 1\)</span>, i.e.&nbsp;<span class="mat
 \]</span> <span style="display: block; text-align: right;"><span class="math inline">\(\square\)</span></span></p>
 </div>
 <div id="def-absolute-convergence" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.6 (Absolute convergence)</strong></span> <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} |x_n|\)</span> converges.</p>
+<p><span class="theorem-title"><strong>Definition 3.12 (Absolute convergence)</strong></span> <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} |x_n|\)</span> converges.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em> (of Absolute Convergence <span class="math inline">\(\Rightarrow\)</span> Convergence). </span>If <span class="math inline">\(\sum_{n=1}^{\infty} |x_n|\)</span> converges, then it is <a href="#def-cauchy-series" class="quarto-xref">Cauchy</a>. Then, <span class="math inline">\(\forall \varepsilon &gt; 0\)</span>, <span class="math inline">\(\exists\, M \in \mathbb{N}\)</span> s.t. <span class="math inline">\(\forall k \geq M\)</span> and <span class="math inline">\(n &gt; k\)</span>, <span class="math inline">\(\left|\sum_{i=k+1}^{n} |x_i|\right| &lt; \varepsilon\)</span>.</p>
@@ -787,7 +787,7 @@ L &lt; 1 \quad \text{iff} \quad |x - x_0| &lt; \left[ \limsup |a_n|^{\frac{1}{n}
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><a href="..">Thomas (Yanle) Li</a></p>
+<p><a href="https://thomaslylyll.github.io/">Thomas’ homepage</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
