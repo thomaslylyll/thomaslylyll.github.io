@@ -1,0 +1,60 @@
+/*-- scss:defaults --*/
+
+// Paper look
+$paper: #f7f3e8;
+$paper-dark: #efe9d9;
+$ink: #2b2925;
+
+$body-bg: $paper;
+$body-color: $ink;
+$link-color: #275d85;
+$sidebar-bg: $paper;
+$footer-bg: $paper;
+
+$font-family-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+$font-family-sans-serif: $font-family-serif;
+$headings-font-family: $font-family-serif;
+
+/*-- scss:rules --*/
+
+// Result blocks: theorem-like results get an ink-blue rule, definitions a sepia one,
+// examples a dashed grey one. Proofs stay plain so the statements stand out.
+$result-rule: #3d5f80;
+$definition-rule: #9a6b3f;
+$example-rule: #9a9486;
+
+.theorem, .proposition, .lemma, .corollary, .claim,
+.definition, .example {
+  margin: 1.4rem 0;
+  padding: 0.8rem 1.1rem;
+  background: rgba(255, 255, 255, 0.45);
+  border-left: 3px solid $result-rule;
+  border-radius: 2px;
+
+  > :last-child { margin-bottom: 0; }
+}
+
+.definition { border-left-color: $definition-rule; }
+.example { border-left: 3px dashed $example-rule; background: transparent; }
+
+.theorem-title { color: $result-rule; }
+.definition .theorem-title { color: $definition-rule; }
+.example .theorem-title { color: #6b665b; }
+
+.proof:not(.remark) {
+  margin: -0.4rem 0 1.6rem;
+  padding: 0.2rem 0 0 1.1rem;
+}
+
+// Callouts (e.g. "Examples of cluster points") sit on the paper instead of a white card
+.callout {
+  background: transparent;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  border-left: 3px solid $example-rule !important;
+}
+
+// Sidebar and search box blend into the paper
+.sidebar, #quarto-sidebar, .sidebar-navigation { background-color: $paper; }
+.aa-Form, .aa-Panel { background-color: $paper-dark; }
+
+hr { opacity: 0.2; }

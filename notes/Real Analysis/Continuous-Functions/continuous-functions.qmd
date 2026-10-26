@@ -1,0 +1,268 @@
+---
+title: "Continuous Functions"
+---
+
+## Limits of functions
+
+Previously, we defined limits in the context of sequences. Now we extend the definition to functions. Given a function $f : S \to \mathbb{R}$, we want to see how $f(x)$ behaves as $x$ approaches a certain point.
+
+In order for $x \in S$ to approach a certain point, there must be elements of $S$ arbitrarily near the point. We can only talk about the limit of functions at such points, called *cluster points*.
+
+::: {#def-cluster-point name="Cluster points"}
+Given a set $S \subseteq \mathbb{R}$, a number $x \in \mathbb{R}$ is called a cluster point of $S$ if $\forall \varepsilon > 0$,
+$$
+((x - \varepsilon, x + \varepsilon) \setminus \{x\}) \cap S \neq \varnothing.
+$$
+:::
+
+i.e. for any arbitrary $\varepsilon > 0$, the $\varepsilon$-neighborhood of $x$, discarding $x$ itself, has elements of $S$ in it. Note that this is equivalent to saying that the $\varepsilon$-neighborhood of $x$, $(x - \varepsilon, x + \varepsilon)$, contains infinitely many elements of $S$, since for any $y \in S$ that satisfies $0 < |x - y| < \varepsilon$, we can take another $\varepsilon$ less than $|x - y|$ to find another point.
+
+::: {.remark}
+- A cluster point of $S$ does not need to be in $S$.
+- By this way of defining cluster points, we can relate them to the limit of a sequence that approaches the point.
+:::
+
+::: {#prp-cluster-point-sequence}
+$x \in \mathbb{R}$ is a cluster point of $S$ iff $\exists$ a convergent sequence $\{x_n\}$ s.t. $\forall n \in \mathbb{N}$, $x_n \neq x$ and $x_n \in S$, and $\lim x_n = x$.
+:::
+
+::: {.proof}
+($\Rightarrow$) If $x$ is a cluster point of $S$, then $((x - \frac{1}{n}, x + \frac{1}{n}) \setminus \{x\}) \cap S$ is always non empty. Then, we can repeatedly pick $x_n$ from the set so that $|x - x_n| < \frac{1}{n} \Rightarrow x_n \to x$.
+
+($\Leftarrow$) If such a sequence $\{x_n\}$ exists and $x_n \to x$. Then $\forall \varepsilon > 0$, $\exists\, M \in \mathbb{N}$ s.t. $|x_M - x| < \varepsilon \Rightarrow x_M \in (x - \varepsilon, x + \varepsilon) \cap S \setminus \{x\}$. [$\square$]{style="float: right;"}
+:::
+
+::: {.callout-note appearance="simple" icon=false}
+## Examples of cluster points
+
+- Let $C(S)$ denote the cluster points of $S$
+- $C(\mathbb{Q}) = \mathbb{R}$
+- $C(\mathbb{R} \setminus \mathbb{Q}) = \mathbb{R}$
+- $C([0,1]) = [0,1]$
+- $C((0,1)) = [0,1]$
+- $C(\{\frac{1}{n} : n \in \mathbb{N}\}) = \{0\}$
+- $C(\mathbb{N}) = \varnothing$
+:::
+
+Now that we have defined cluster points, we can define the limit of a function $f(x)$ as $x$ approaches a cluster point $c$.
+
+::: {#def-limit-of-function name="Limit of a function"}
+Let $f : S \to \mathbb{R}$ be a function and $c$ be a cluster point of $S \subseteq \mathbb{R}$. Suppose $\exists\, L \in \mathbb{R}$ and $\forall \varepsilon > 0$, $\exists\, \delta > 0$ s.t. if $x \in S \setminus \{c\}$ and $|x - c| < \delta$, then $|f(x) - L| < \varepsilon$.
+Then, $f(x)$ converges to $L$ as $x$ goes to $c$, i.e.
+$$
+\lim_{x \to c} f(x) := L.
+$$
+:::
+
+We can also relate the limit of a function with sequential limits using the [sequential limit definition of cluster points](#prp-cluster-point-sequence){.quarto-xref}:
+
+::: {#lem-sequential-limit}
+$f(x) \to L$ as $x \to c$ iff for every sequence $\{x_n\}$ where $x_n \in S \setminus \{c\}$ and $x_n \to c$, $\{f(x_n)\}$ converges to $L$.
+:::
+
+This allows us to apply the properties of sequential limits to $\{f(x_n)\}$,
+
+## Continuous functions
+
+We first define continuity at a point.
+
+::: {#def-continuity}
+$f : S \to \mathbb{R}$ is continuous at $c$ if $\forall \varepsilon > 0$, $\exists\, \delta > 0$ s.t. whenever $x \in S$ and $|x - c| < \delta$, we have $|f(x) - f(c)| < \varepsilon$.
+
+If $f$ is continuous $\forall c \in S$, then $f$ is a continuous function.
+:::
+
+::: {.remark}
+Comparison with limit definition at a point $c$:
+
+- limit: $\forall \varepsilon > 0$, $\exists\, \delta > 0$ s.t.
+  $$
+  0 < |x - c| < \delta \Rightarrow |f(x) - L| < \varepsilon.
+  $$
+- continuity: $\forall \varepsilon > 0$, $\exists\, \delta > 0$ s.t.
+  $$
+  |x - c| < \delta \Rightarrow |f(x) - f(c)| < \varepsilon.
+  $$
+- For a function to be continuous, we also have to consider its value at the point $c$, hence we do not exclude it. Furthermore, since we are now including the point $c$, we need $f(x)$ to approach $f(c)$ rather than any arbitrary $L$.
+- Equivalently, continuity means that $\lim\limits_{x \to c} f(x) = f(c)$.
+:::
+
+::: {#prp-continuity}
+I\. If $c$ is a cluster point of $S$, then $f$ is continuous at $c$ iff $\lim\limits_{x \to c} f(x)$ exists and is equal to $f(c)$.
+
+II\. $f$ is continuous at $c$ iff for every sequence $\{x_n\}$ where $x_n \in S$ and $x_n \to c$, $f(x_n) \to f(c)$.
+
+III\. If $c$ is NOT a cluster point of $S$, then $f$ is continuous at $c$.
+:::
+
+::: {.proof name="of II"}
+($\Rightarrow$) Suppose $f$ is continuous at $c$. Let $\{x_n\}$ be a sequence s.t. $x_n \in S$ and $x_n \to c$.
+
+Let $\varepsilon > 0$. We take $\delta > 0$ s.t. $|f(x) - f(c)| < \varepsilon$ when $|x - c| < \delta$ by the [definition of continuity](#def-continuity){.quarto-xref}. Choose $M \in \mathbb{N}$ s.t. $\forall n \geq M$, $|x_n - c| < \delta$.
+Then, $\forall n \geq M$, $|f(x_n) - f(c)| < \varepsilon \Rightarrow f(x_n) \to f(c)$.
+
+($\Leftarrow$) By contrapositive. Suppose $f$ is not continuous at $c$. Then, $\exists\, \varepsilon > 0$ s.t. $\forall \delta > 0$, $\exists\, x \in S$ s.t. $|x - c| < \delta$ but $|f(x) - f(c)| \geq \varepsilon$.
+
+We then define $\{x_n\}$ so that $x_n \to c$ but $\{f(x_n)\}$ doesn't converge to $f(c)$. Choose $x_n$ s.t. $|x_n - c| < \frac{1}{n}$ and $|f(x_n) - f(c)| \geq \varepsilon$.
+
+Then, $x_n \to c$, but $|f(x_n) - f(c)| \geq \varepsilon$ $\forall n \in \mathbb{N}$, so it doesn't converge to $f(c)$.
+:::
+
+::: {#exm-reciprocal}
+Continuity of $f(x) = 1/x$ on $(0, \infty)$ using continuity of algebraic operations, using [prop II](#prp-continuity){.quarto-xref}.
+
+Let $c \in (0, \infty)$. Let $\{x_n\}$ be a sequence in $(0, \infty)$ s.t. $x_n \to c$. Then,
+$$
+f(c) = \frac{1}{c} = \frac{1}{\lim x_n} = \lim \frac{1}{x_n} = \lim f(x_n)
+$$
+Hence, $f(x_n) \to f(c)$. [$\square$]{style="float: right;"}
+:::
+
+### Dirichlet function
+
+$$
+f(x) := \begin{cases} 1, & x \in \mathbb{Q} \\ 0, & x \in \mathbb{R} \setminus \mathbb{Q} \end{cases}
+$$
+
+The dirichlet function is discontinuous at all $c \in \mathbb{R}$.
+
+::: {.proof}
+If $c \in \mathbb{Q}$, then we take a sequence $\{x_n\}$ of irrational numbers in $\mathbb{R}$ such that $\lim x_n = c$. Then, $f(x_n) = 0$, so $\lim f(x_n) = 0$, but $f(c) = 1$.
+We do a similar but opposite construction for $c \in \mathbb{R} \setminus \mathbb{Q}$.
+
+The sequence can simply be chosen with $x_n$ satisfying $c < x_n < c + \frac{1}{n}$, due to [density of $\mathbb{Q}$ in $\mathbb{R}$](../Real-Numbers/real-numbers.qmd#thm-density-of-q){.quarto-xref}. [$\square$]{style="float: right;"}
+:::
+
+## Theorems on Continuous functions
+
+::: {#thm-bounded-on-interval}
+Continuous functions on closed and bounded intervals are bounded.
+
+Let $f : [a,b] \to \mathbb{R}$ be continuous. Then $\exists\, C > 0$ s.t. $|f(x)| \leq C$ $\forall x \in [a,b]$.
+:::
+
+::: {.proof}
+1. We define a sequence $\{x_n\}$ s.t. $\forall n \in \mathbb{N}$, choose $x_n \in [a,b]$ s.t. $|f(x_n)| > n$.
+2. Since $\{x_n\}$ is bounded, by [B-W](../Sequences-Series/sequences-series.qmd#thm-bolzano-weierstrass){.quarto-xref} there exists a convergent subsequence $\{x_{n_k}\}$. Let $x_{n_k} \to \ell \in [a,b]$.
+3. By [definition of continuity](#def-continuity){.quarto-xref}, $x_{n_k} \to \ell$, so $f(x_{n_k}) \to f(\ell)$.
+   Then, $f(x_{n_k})$ is convergent and also bounded. Let $B$ be a bound for $f(x_{n_k})$, i.e. $|f(x_{n_k})| \leq B$ $\forall k$.
+4. We arrive at a contradiction with the constructed sequence $\{x_n\}$. Since $\{x_{n_k}\}$ is a subsequence, it still has the property that $|f(x_{n_k})| > n_k$. However $n_k$ is not bounded, so if we choose $n_k > B$, then
+   $$
+   B < n_k < |f(x_{n_k})| \leq B,
+   $$
+   which is a contradiction. [$\square$]{style="float: right;"}
+:::
+
+::: {#thm-extreme-value name="Extreme Value Theorem"}
+A continuous function $f : [a,b] \to \mathbb{R}$ achieves both an absolute maximum and an absolute minimum on $[a,b]$.
+:::
+
+- Note: $f$ achieves an absolute maximum at $c \in S$ if $f(x) \leq f(c)$ $\forall x \in S$. [similar for absolute minimum].
+
+::: {#thm-intermediate-value name="Intermediate Value Theorem"}
+Let $f : [a,b] \to \mathbb{R}$ be continuous. Suppose $y \in \mathbb{R}$ s.t. $f(a) < y < f(b)$ or $f(a) > y > f(b)$. Then, $\exists\, c \in [a,b]$ s.t. $f(c) = y$.
+:::
+
+i.e. A continuous function on a closed interval achieves all the values between the values at the endpoints.
+
+::: {#cor-range}
+Define $\sup f$ as $\sup(\operatorname{range}(f))$ and $\inf f$ as $\inf(\operatorname{range}(f))$. Then,
+$$
+\operatorname{range}(f) = [\inf f, \sup f].
+$$
+:::
+
+::: {.proof}
+This is proven by letting $a = x_{\min}$ and $b = x_{\max}$ in the [intermediate value theorem](#thm-intermediate-value){.quarto-xref}. [$\square$]{style="float: right;"}
+:::
+
+## Uniform Continuity
+
+::: {#def-uniform-continuity}
+Let $f : S \to \mathbb{R}$. Suppose that for every $\varepsilon > 0$ there exists a $\delta > 0$ s.t. whenever $x, c \in S$ and $|x - c| < \delta$, then $|f(x) - f(c)| < \varepsilon$.
+Then, $f$ is uniformly continuous.
+:::
+
+Comparison with continuity:
+
+- We pick a $\delta_\varepsilon$ that works for all $c \in S$ in the case of uniform continuity, while in continuity it depends on $c$ and $\varepsilon$.
+- Thus, uniform continuity depends on the domain.
+- $\begin{cases} \text{Continuity: } \forall x,\ \forall \varepsilon\ \exists \delta \text{ s.t. } \forall c \dots \\ \text{Uniform Continuity: } \forall \varepsilon,\ \exists \delta \text{ s.t. } \forall x, c \dots \end{cases}$
+
+::: {#thm-uniform-continuity-interval}
+Let $f : [a,b] \to \mathbb{R}$ be continuous. Then, $f$ is uniformly continuous.
+:::
+
+::: {.proof}
+Contrapositive.
+Suppose $f$ is not uniformly continuous. We WTS that $\exists\, c \in [a,b]$ s.t. $f$ is not continuous.
+
+By negation of [uniform continuity](#def-uniform-continuity){.quarto-xref}, $\exists\, \varepsilon > 0$, s.t. $\forall \delta > 0$, $\exists\, x, y \in [a,b]$ with $|x - y| < \delta$ and $|f(x) - f(y)| \geq \varepsilon$.
+
+Then, for this $\varepsilon$, since all the $\delta$ is applicable, we let $\delta = \frac{1}{n}$ $\forall n \in \mathbb{N}$ and create sequences $\{x_n\}$ and $\{y_n\}$ s.t.
+$$
+|x_n - y_n| < 1/n \text{ and } |f(x_n) - f(y_n)| \geq \varepsilon.
+$$
+
+By [B-W](../Sequences-Series/sequences-series.qmd#thm-bolzano-weierstrass){.quarto-xref}, $\exists$ a convergent subsequence $\{x_{n_k}\}$. Let $x_{n_k} \to c$. Since $[a,b]$ is closed, $a \leq c \leq b$.
+
+Consider $\{y_{n_k}\}$, the subsequence of $\{y_n\}$ corresponding to $\{x_{n_k}\}$,
+$$
+\begin{aligned}
+|y_{n_k} - c| &\leq |y_{n_k} - x_{n_k}| + |x_{n_k} - c| \\
+&\leq 1/n_k + |x_{n_k} - c|.
+\end{aligned}
+$$
+both terms $\to 0$ as $k \to \infty$, so $y_{n_k} \to c$.
+
+We now show that $f$ is not continuous at $c$:
+$$
+\begin{aligned}
+|f(x_{n_k}) - f(c)| &= |f(x_{n_k}) - f(y_{n_k}) + f(y_{n_k}) - f(c)| \\
+&\geq |f(x_{n_k}) - f(y_{n_k})| - |f(y_{n_k}) - f(c)| && [\text{inverse triangle ineq.}] \\
+&\geq \varepsilon - |f(y_{n_k}) - f(c)|
+\end{aligned}
+$$
+$$
+\Rightarrow |f(x_{n_k}) - f(c)| + |f(y_{n_k}) - f(c)| \geq \varepsilon.
+$$
+
+At least one of $f(x_{n_k})$ and $f(y_{n_k})$ does not converge to $f(c)$. Thus $f$ is not continuous at $c$. [$\square$]{style="float: right;"}
+:::
+
+::: {#exm-x-squared-unit-interval}
+$f(x) = x^2$ is uniformly continuous on $[0,1]$.
+:::
+
+::: {.proof}
+$$
+\begin{aligned}
+|f(x) - f(c)| &= |x^2 - c^2| \\
+&= |x + c|\,|x - c| \\
+&\leq (|x| + |c|)\,|x - c| \\
+&\leq 2\,|x - c|
+\end{aligned}
+$$
+Thus, for $\varepsilon > 0$, we take $\delta = \varepsilon/2$.
+Then, $|x^2 - c^2| \leq 2|x - c| < 2\delta = \varepsilon$ [$\square$]{style="float: right;"}
+:::
+
+::: {#exm-x-squared-reals}
+$f(x) = x^2$ is not uniformly continuous on $\mathbb{R}$.
+:::
+
+::: {.proof}
+Suppose for contradiction that it is uniformly continuous. Then, for every $\varepsilon > 0$, $\exists\, \delta > 0$ s.t. $|x - c| < \delta \Rightarrow |x^2 - c^2| < \varepsilon$.
+
+Let $x > 0$ and $c = x + \delta/2$.
+Notice that
+$$
+\begin{aligned}
+\varepsilon > |x^2 - c^2| &= |x + c|\,|x - c| \\
+&= (2x + \delta/2)\,\delta/2 \\
+&= x\delta + \delta^2/4 \\
+&\geq \delta x
+\end{aligned}
+$$
+Then, $\forall x > 0$, $x < \frac{\varepsilon}{\delta}$ for the uniform continuity to hold, which contradicts the assumption that $\delta$ holds for all $x$. [$\square$]{style="float: right;"}
+:::

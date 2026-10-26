@@ -1,0 +1,28 @@
+---
+title: "Sets"
+---
+
+## Power Set
+
+::: {#thm-cantor-power-set name="Cantor's Theorem"}
+For any set $S$, $|S| < |\mathcal{P}(S)|$.
+:::
+
+::: {.proof}
+We show that there is no surjection $f : S \to \mathcal{P}(S)$.
+
+Notice that we are essentially mapping $S$ to subsets of $S$. Then we just need to construct a subset of $S$ that is not mapped to, given our mapping $f$.
+
+Let $E := \{x \in S : x \notin f(x)\}$. This is a subset of $S$, with the property that the elements in $E$ are not in the subset of $S$ that they are mapped to in $f$. For every element in $S$, we can check if $e \in S$ is in $E$ by seeing if $e \in f(e) \subseteq S$.
+
+We now show that there is no $e \in S$ s.t. $f(e) = E$, i.e. $E \in \mathcal{P}(S)$ is an element of the codomain that is not mapped to:
+
+Suppose for contradiction that $\exists\, e \in S$ s.t. $f(e) = E$. We check if $e \in E$:
+
+① If $e \notin f(e)$, then by definition of $E$, $e \in E$. But $E = f(e)$ so $e \in f(e)$. $\rightarrow\leftarrow$.
+
+② If $e \in f(e)$, then by definition, $e \notin E$. But $E = f(e)$ so $e \notin f(e)$. $\rightarrow\leftarrow$.
+
+Thus, there is no $e \in S$ s.t. $f(e) = E$.
+Then, $f$ cannot be a surjection. [$\square$]{style="float: right;"}
+:::

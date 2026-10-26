@@ -1,0 +1,204 @@
+---
+title: "Sequences and Series"
+---
+
+## Sequences
+
+::: {#def-convergence name="Convergence"}
+$x_n \to x$ if $\forall \varepsilon > 0$, $\exists\, N \in \mathbb{N}$ s.t. $\forall n \geq N$, $|x_n - x| \leq \varepsilon$.
+:::
+
+::: {#thm-monotone-convergence name="Monotone Convergence"}
+A monotone sequence $\{x_n\}_{n=1}^{\infty}$ is bounded iff it is convergent.
+
+If $\{x_n\}$ is increasing then $\lim x_n = \sup\{x_n : n \in \mathbb{N}\}$.
+If $\{x_n\}$ is decreasing then $\lim x_n = \inf\{x_n : n \in \mathbb{N}\}$.
+:::
+
+::: {.proof}
+Consider a monotone increasing sequence $\{x_n\}$ that is bounded.
+Let $s := \sup\{x_n : n \in \mathbb{N}\}$.
+Let $\varepsilon > 0$. Since $s$ is the supremum, $s - \varepsilon$ is not a UB, so $\exists\, M \in \mathbb{N}$ s.t. $x_M > s - \varepsilon$. As $\{x_n\}$ is increasing, $\forall n \geq M$, $x_n > s - \varepsilon$.
+Then, $\forall n \geq M$, $|x_n - s| = s - x_n < \varepsilon$. Thus, $x_n \to s$.
+The inverse direction of convergent $\Rightarrow$ bounded is true for sequences in general. [$\square$]{style="float: right;"}
+:::
+
+::: {#def-limsup-liminf name="liminf, limsup"}
+limsup:
+$$
+\limsup_{n\to\infty} x_n := \lim_{n\to\infty} \sup\{x_k : k \geq n\} = \inf_{n \in \mathbb{N}} \sup\{x_k : k \geq n\}
+$$
+
+liminf:
+$$
+\liminf_{n\to\infty} x_n := \lim_{n\to\infty} \inf\{x_k : k \geq n\} = \sup_{n \in \mathbb{N}} \inf\{x_k : k \geq n\}.
+$$
+:::
+
+::: {#thm-limsup-subsequence}
+If $\{x_n\}$ is bounded, then it has a subsequence that converges to $\limsup x_n$ and a subsequence that converges to $\liminf x_n$.
+:::
+
+::: {.proof name="for limsup"}
+Define $a_n := \sup\{x_k : k \geq n\}$. Write $x := \limsup\limits_{n\to\infty} x_n = \lim\limits_{n\to\infty} a_n$.
+We define the subsequence inductively.
+
+Let $n_1 := 1$. Suppose $n_1, n_2, \dots, n_{k-1}$ are already defined. Then, we pick an $m \geq n_{k-1} + 1$ s.t. $a_{(n_{k-1}+1)} - x_m < \frac{1}{k}$.
+
+Such an $m$ exists because $a_{(n_{k-1}+1)} = \sup\{x_k : k \geq n_{k-1} + 1\}$, and so if no such $m$ existed then the supremum would have been lower.
+Let $n_k := m$. Then, $\{n_k\}$ is increasing, and $\{x_{n_k}\}$ is a subsequence of $\{x_n\}$.
+
+WTS $x_{n_k} \to x$. $\forall k \geq 2$, $a_{(n_{k-1}+1)} \geq a_{n_k}$, since $n_k \geq n_{k-1} + 1$, and taking the supremum of a larger set can only result in a higher number. Also, $a_{n_k} \geq x_{n_k}$ since the supremum is taken over a set containing $x_{n_k}$.
+Thus, $\forall k \geq 2$,
+$$
+\begin{aligned}
+|a_{n_k} - x_{n_k}| &= a_{n_k} - x_{n_k} \\
+&\leq a_{(n_{k-1}+1)} - x_{n_k} \\
+&< \tfrac{1}{k} && [\text{by definition of } n_k]
+\end{aligned}
+$$
+
+Let $\varepsilon > 0$. As $a_n \to x$, the subsequence $a_{n_k} \to x$. Thus, $\exists\, M_1 \in \mathbb{N}$ s.t. $\forall k \geq M_1$, $|a_{n_k} - x| < \varepsilon/2$.
+
+Furthermore, let $M_2 \in \mathbb{N}$ s.t. $\frac{1}{M_2} \leq \varepsilon/2$.
+
+Then, let $M := \max\{M_1, M_2, 2\}$. $\forall k \geq M$,
+$$
+\begin{aligned}
+|x - x_{n_k}| &= |a_{n_k} - x_{n_k} + x - a_{n_k}| \\
+&\leq |a_{n_k} - x_{n_k}| + |a_{n_k} - x| \\
+&< \frac{1}{k} + \varepsilon/2 \\
+&\leq \frac{1}{M_2} + \varepsilon/2 \\
+&\leq \varepsilon
+\end{aligned}
+$$
+[$\square$]{style="display: block; text-align: right;"}
+:::
+
+::: {#thm-bolzano-weierstrass name="Bolzano-Weierstrass"}
+If $\{x_n\}$ is bounded, then there exists a convergent subsequence $\{x_{n_i}\}$.
+:::
+
+::: {.proof}
+Following the [previous thm](#thm-limsup-subsequence){.quarto-xref} on bounded sequences, we know that there exist subsequences that converge to $\limsup x_n$ and $\liminf x_n$. [$\square$]{style="float: right;"}
+
+[Note that this proof only applies to $\mathbb{R}$, while Bolzano-Weierstrass applies to $\mathbb{R}^n$.]
+:::
+
+::: {.proof name="Alternate"}
+As the sequence is bounded, there exist two numbers $a_1 < b_1$ s.t. $a_1 \leq x_n \leq b_1$ $\forall n \in \mathbb{N}$. The idea of the proof is that we will define a subsequence $\{x_{n_i}\}$ and two sequences $\{a_i\}$ and $\{b_i\}$, such that $\{a_i\}$ is monotone increasing, $\{b_i\}$ is monotone decreasing, $a_i \leq x_{n_i} \leq b_i$, and such that $\lim a_i = \lim b_i$. Then, by squeeze theorem $\{x_{n_i}\}$ converges.
+
+We define the sequences inductively. We will define the sequences so that for all $i$, we have $a_i < b_i$ and $x_n \in [a_i, b_i]$ for infinitely many $n \in \mathbb{N}$. As stated above, $a_1$ and $b_1$ bound the entire sequence.
+We take $n_1 = 1$, i.e. $x_{n_1} = x_1$.
+
+Induction: Suppose that up to some $k \in \mathbb{N}$, we have defined the subsequence $x_{n_1}, \dots, x_{n_k}$, and the sequences $a_1, \dots, a_k$ & $b_1, \dots, b_k$. Let $y = \frac{a_k + b_k}{2}$, so $a_k < y < b_k$.
+
+If there exists infinitely many $j \in \mathbb{N}$ s.t. $x_j \in [a_k, y]$, then set $a_{k+1} = a_k$ and $b_{k+1} = y$, and pick the next element in the subsequence with $n_{k+1} > n_k$ such that $x_{n_{k+1}} \in [a_k, y]$. Consider if there doesn't exist infinitely many $j \in \mathbb{N}$ s.t. $x_j \in [a_k, y]$. But then since there are infinitely many elements of $\{x_n\}$ in $[a_k, b_k]$ from the inductive hypothesis, there must be infinitely many $j \in \mathbb{N}$ s.t. $x_j \in [y, b_k]$. Then, let $a_{k+1} = y$, $b_{k+1} = b_k$, and pick $n_{k+1} > n_k$ s.t. $x_{n_{k+1}} \in [y, b_k]$.
+
+This sequence satisfies all requirements, all that is left is to prove that $\{a_i\}$ and $\{b_i\}$ converge to the same limit (the limits exist by [monotone convergence](#thm-monotone-convergence){.quarto-xref}).
+
+$b_i - a_i$ is cut in half each step of the construction, i.e. $b_{i+1} - a_{i+1} = \frac{b_i - a_i}{2}$. Tracing back to the first step, $b_i - a_i = \frac{b_1 - a_1}{2^{i-1}}$.
+
+Let $x = \lim a_i = \sup\{a_i\}$ and $y = \lim b_i = \inf\{b_i\}$. Since $a_i < b_i$ $\forall i$, $x \leq y$. Also, as the distance between $a_i$ & $b_i$ is always decreasing, $\forall i$, $y - x \leq b_i - a_i = \frac{b_1 - a_1}{2^{i-1}}$. For all $\varepsilon > 0$, we can always find $i \in \mathbb{N}$ s.t. $\frac{b_1 - a_1}{2^{i-1}} \leq \varepsilon$. Thus, $y - x = 0$, and the 2 limits are equal. [$\square$]{style="float: right;"}
+:::
+
+::: {#def-cauchy name="Cauchy sequence"}
+A sequence $\{x_n\}$ is a cauchy sequence if $\forall \varepsilon > 0$ $\exists\, N \in \mathbb{N}$ s.t. $\forall n, k \geq N$, $|x_n - x_k| < \varepsilon$.
+:::
+
+Cauchy sequences are bounded and convergent.
+
+## Series
+
+::: {#def-series name="Series"}
+A series converges if the sequence of its partial sums converges.
+$$
+\sum_{n=1}^{\infty} x_n = \lim_{k\to\infty} \sum_{n=1}^{k} x_n
+$$
+:::
+
+::: {#exm-geometric-series name="Geometric Series"}
+- partial sum: $\displaystyle\sum_{n=0}^{k-1} r^n = \frac{1 - r^k}{1 - r}$
+- Convergence: $-1 < r < 1$, $\displaystyle\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}$.
+:::
+
+::: {#exm-p-series name="P-Series"}
+$\displaystyle\sum_{n=1}^{\infty} \frac{1}{n^p}$
+
+- $p > 1$: converges
+- $p \leq 1$: diverges
+:::
+
+::: {#def-cauchy-series name="Cauchy series"}
+A series whose sequence of partial sums form a cauchy sequence.
+:::
+
+::: {#prp-cauchy-series}
+A series $\sum_{n=1}^{\infty} x_n$ is convergent iff $\forall \varepsilon > 0$, $\exists\, M \in \mathbb{N}$ s.t. $\forall n \geq M$ and $k > n$, $\left|\sum_{i=n+1}^{k} x_i\right| < \varepsilon$.
+:::
+
+::: {.proof}
+All convergent series are [cauchy](#def-cauchy-series){.quarto-xref}. Then, we have an $M \in \mathbb{N}$ s.t. $\forall n, k \geq M$, $k > n$,
+$$
+\left| \sum_{i=1}^{k} x_i - \sum_{i=1}^{n} x_i \right| < \varepsilon
+$$
+$$
+\iff \left| \sum_{i=n+1}^{k} x_i \right| < \varepsilon.
+$$
+[$\square$]{style="display: block; text-align: right;"}
+:::
+
+::: {#def-absolute-convergence name="Absolute convergence"}
+$\displaystyle\sum_{n=1}^{\infty} |x_n|$ converges.
+:::
+
+::: {.proof name="of Absolute Convergence $\Rightarrow$ Convergence"}
+If $\sum_{n=1}^{\infty} |x_n|$ converges, then it is [Cauchy](#def-cauchy-series){.quarto-xref}. Then, $\forall \varepsilon > 0$, $\exists\, M \in \mathbb{N}$ s.t. $\forall k \geq M$ and $n > k$, $\left|\sum_{i=k+1}^{n} |x_i|\right| < \varepsilon$.
+
+Since all the terms $\geq 0$, $\sum_{i=k+1}^{n} |x_i| < \varepsilon$. We then go back to the original series:
+$$
+\left| \sum_{i=k+1}^{n} x_i \right| \leq \sum_{i=k+1}^{n} |x_i| < \varepsilon.
+$$
+Thus, the original series is cauchy, and is convergent. [$\square$]{style="float: right;"}
+:::
+
+### Tests for convergence
+
+- Comparison test.
+- Ratio test
+  $$
+  R = \limsup_{n\to\infty} \frac{|x_{n+1}|}{|x_n|}
+  $$
+- Root test
+  $$
+  R = \limsup_{n\to\infty} |x_n|^{1/n}
+  $$
+
+  $$
+  \begin{cases}
+  R < 1 : \text{converges absolutely} \\
+  R > 1 : \text{diverges}
+  \end{cases}
+  $$
+- Alternating Series test
+
+  Let $\{x_n\}$ be a monotone decreasing sequence of positive real numbers such that $\lim\limits_{n\to\infty} x_n = 0$. Then
+  $$
+  \sum_{n=1}^{\infty} (-1)^n x_n \text{ converges.}
+  $$
+
+## Power Series
+
+$$
+\sum_{n=0}^{\infty} a_n (x - x_0)^n \quad \text{for } x_0 \in \mathbb{R} \text{ is power series about } x_0.
+$$
+
+Finding radius of convergence:
+$$
+L = \limsup_{n\to\infty} \left| a_n (x - x_0)^n \right|^{1/n} = \limsup |a_n|^{1/n} \cdot |x - x_0|
+$$
+$$
+L < 1 \quad \text{iff} \quad |x - x_0| < \left[ \limsup |a_n|^{\frac{1}{n}} \right]^{-1}.
+$$
+
+Radius of convergence $\displaystyle R = \frac{1}{\limsup |a_n|^{1/n}}$ [$\square$]{style="float: right;"}

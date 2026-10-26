@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1. Limits of Functions</title>
+<title>1&nbsp; Sets – Real Analysis</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,17 +29,52 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="limits-of-functions_files/libs/clipboard/clipboard.min.js"></script>
-<script src="limits-of-functions_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="limits-of-functions_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="limits-of-functions_files/libs/quarto-html/popper.min.js"></script>
-<script src="limits-of-functions_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="limits-of-functions_files/libs/quarto-html/anchor.min.js"></script>
-<link href="limits-of-functions_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="limits-of-functions_files/libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="limits-of-functions_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="limits-of-functions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="limits-of-functions_files/libs/bootstrap/bootstrap-59dd8919442ca13f49e7afeb68453dc2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../Real-Numbers/real-numbers.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9bdc7be5b9f85528916ff27676c544f4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -73,24 +108,90 @@ window.Quarto = {
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Sets/sets.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sets</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Real Analysis</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Contents</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Sets/sets.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sets</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Real-Numbers/real-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Real Numbers</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Sequences-Series/sequences-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sequences and Series</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Continuous-Functions/continuous-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Continuous Functions</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#cluster-points" id="toc-cluster-points" class="nav-link" data-scroll-target="#cluster-points">Cluster points</a></li>
+  <li><a href="#power-set" id="toc-power-set" class="nav-link active" data-scroll-target="#power-set"><span class="header-section-number">1.1</span> Power Set</a></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1. Limits of Functions</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sets</span></h1>
 </div>
 
 
@@ -107,26 +208,27 @@ window.Quarto = {
 </header>
 
 
-<section id="motivation" class="level3">
-<h3 class="anchored" data-anchor-id="motivation">Motivation</h3>
-<p>In order to define continuity of funtions, we need to define limits in the context of functions. Previously, we defined the limit of a sequence. Given a function <span class="math inline">\(f:S\to\mathbb{R}\)</span>, this allows us to see how <span class="math inline">\(f(x)\)</span> behaves as <span class="math inline">\(x\)</span> tends to a certain point.</p>
-</section>
-<section id="cluster-points" class="level3">
-<h3 class="anchored" data-anchor-id="cluster-points">Cluster points</h3>
-<p>The cluster points of a set <span class="math inline">\(S\subseteq \mathbb{R}\)</span> are the points <span class="math inline">\(x\in\mathbb{R}\)</span> that have elements of <span class="math inline">\(S\)</span> aribitrarily near. Equivalently, <span class="math inline">\(x\)</span> is a cluster point of <span class="math inline">\(S\)</span> if <span class="math inline">\(\forall \varepsilon &gt;0\)</span>, the neighborhood <span class="math inline">\((x-\varepsilon, x+\varepsilon)\)</span> contains infinitely many elements of <span class="math inline">\(S\)</span>.</p>
-<p>However, since epsilon can take any arbitraily small value, demonstrating that there exists an element of <span class="math inline">\(S\)</span> in <span class="math inline">\((x-\varepsilon, x+\varepsilon)\setminus\{x\}\)</span> is sufficient. Consider if there were only finite many elements of <span class="math inline">\(S\)</span> in the <span class="math inline">\(\varepsilon\)</span>-neighborhood of <span class="math inline">\(x\)</span>. Then, we could always choose an epsilon small enough such that the neighborhood contains none of the elements of <span class="math inline">\(S\)</span> except possibly <span class="math inline">\(x\)</span>, which is excluded in <span class="math inline">\((x-\varepsilon, x+\varepsilon)\setminus\{x\}\)</span>.</p>
-<div id="def-cluster-point" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1</strong></span> Given a set <span class="math inline">\(S\subseteq\mathbb{R}\)</span>, a number <span class="math inline">\(x\in\mathbb{R}\)</span> is called a <strong>cluster point</strong> of <span class="math inline">\(S\)</span> if, for every <span class="math inline">\(\varepsilon&gt;0\)</span>,</p>
-<p><span class="math display">\[
-((x-\varepsilon,x+\varepsilon)\setminus\{x\})
-\cap S\neq\varnothing.
-\]</span></p>
+<section id="power-set" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="power-set"><span class="header-section-number">1.1</span> Power Set</h2>
+<div id="thm-cantor-power-set" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1 (Cantor’s Theorem)</strong></span> For any set <span class="math inline">\(S\)</span>, <span class="math inline">\(|S| &lt; |\mathcal{P}(S)|\)</span>.</p>
 </div>
-<p>Notice that a cluster point of <span class="math inline">\(S\)</span> may not be an element of <span class="math inline">\(S\)</span> itself.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We show that there is no surjection <span class="math inline">\(f : S \to \mathcal{P}(S)\)</span>.</p>
+<p>Notice that we are essentially mapping <span class="math inline">\(S\)</span> to subsets of <span class="math inline">\(S\)</span>. Then we just need to construct a subset of <span class="math inline">\(S\)</span> that is not mapped to, given our mapping <span class="math inline">\(f\)</span>.</p>
+<p>Let <span class="math inline">\(E := \{x \in S : x \notin f(x)\}\)</span>. This is a subset of <span class="math inline">\(S\)</span>, with the property that the elements in <span class="math inline">\(E\)</span> are not in the subset of <span class="math inline">\(S\)</span> that they are mapped to in <span class="math inline">\(f\)</span>. For every element in <span class="math inline">\(S\)</span>, we can check if <span class="math inline">\(e \in S\)</span> is in <span class="math inline">\(E\)</span> by seeing if <span class="math inline">\(e \in f(e) \subseteq S\)</span>.</p>
+<p>We now show that there is no <span class="math inline">\(e \in S\)</span> s.t. <span class="math inline">\(f(e) = E\)</span>, i.e.&nbsp;<span class="math inline">\(E \in \mathcal{P}(S)\)</span> is an element of the codomain that is not mapped to:</p>
+<p>Suppose for contradiction that <span class="math inline">\(\exists\, e \in S\)</span> s.t. <span class="math inline">\(f(e) = E\)</span>. We check if <span class="math inline">\(e \in E\)</span>:</p>
+<p>① If <span class="math inline">\(e \notin f(e)\)</span>, then by definition of <span class="math inline">\(E\)</span>, <span class="math inline">\(e \in E\)</span>. But <span class="math inline">\(E = f(e)\)</span> so <span class="math inline">\(e \in f(e)\)</span>. <span class="math inline">\(\rightarrow\leftarrow\)</span>.</p>
+<p>② If <span class="math inline">\(e \in f(e)\)</span>, then by definition, <span class="math inline">\(e \notin E\)</span>. But <span class="math inline">\(E = f(e)\)</span> so <span class="math inline">\(e \notin f(e)\)</span>. <span class="math inline">\(\rightarrow\leftarrow\)</span>.</p>
+<p>Thus, there is no <span class="math inline">\(e \in S\)</span> s.t. <span class="math inline">\(f(e) = E\)</span>.<br>
+Then, <span class="math inline">\(f\)</span> cannot be a surjection. <span style="float: right;"><span class="math inline">\(\square\)</span></span></p>
+</div>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -527,7 +629,32 @@ window.Quarto = {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="Contents">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Contents</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../Real-Numbers/real-numbers.html" class="pagination-link" aria-label="Real Numbers">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Real Numbers</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="..">Thomas (Yanle) Li</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: .   # render in place, so the HTML sits next to each .qmd and GitHub Pages serves it as is
+
+book:
+  title: "Real Analysis"
+  author: "Thomas (Yanle) Li"
+  search: true
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - Sets/sets.qmd
+    - Real-Numbers/real-numbers.qmd
+    - Sequences-Series/sequences-series.qmd
+    - Continuous-Functions/continuous-functions.qmd
+  page-footer:
+    left: "[Thomas (Yanle) Li](/)"
+
+format:
+  html:
+    theme: [litera, styles.scss]
+    toc: true
+
+filters:
+  - linebreaks.lua
+
+crossref:
+  chapters: true   # Theorem 3.2 = second theorem of chapter 3

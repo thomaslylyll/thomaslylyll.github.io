@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Thomas (Yanle) Li — Computer Science and Mathematics at New York University.">
   <title>Thomas (Yanle) Li</title>
-  <script src="notes.js" defer></script>
   <style>
     :root { color-scheme: light; --ink: #24303b; --muted: #5f6b76; --line: #dfe5e8; --link: #275d85; --bg: #ffffff; }
     * { box-sizing: border-box; }
@@ -34,8 +33,6 @@
     .note-tree { margin: 22px 0 0; padding: 0; list-style: none; font-size: 15px; }
     .note-tree ul { margin: 5px 0 0; padding-left: 25px; }
     .note-tree li { margin: 5px 0; overflow-wrap: anywhere; }
-    .note-folder { color: var(--muted); }
-    .note-tree > li > .note-folder { color: var(--ink); font-weight: 650; }
     footer { border-top: 1px solid var(--line); padding: 22px 0 35px; font-size: 13px; color: var(--muted); }
     @media (max-width: 570px) { header .container { align-items: flex-start; flex-direction: column; gap: 8px; } main { padding-top: 47px; } section { margin-top: 45px; } }
   </style>
@@ -92,7 +89,9 @@
     <section id="notes" aria-labelledby="notes-heading">
       <h2 id="notes-heading">Notes</h2>
       <p class="notes">Occasional notes on mathematics, machine learning, and papers I'm reading.</p>
-      <ul class="note-tree" id="note-tree"></ul>
+      <ul class="note-tree">
+        <li><a href="notes/Real%20Analysis/">Real Analysis</a></li>
+      </ul>
     </section>
   </main>
 
