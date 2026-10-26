@@ -141,7 +141,9 @@ Continuous functions on closed and bounded intervals are bounded.
 Let $f : [a,b] \to \mathbb{R}$ be continuous. Then $\exists\, C > 0$ s.t. $|f(x)| \leq C$ $\forall x \in [a,b]$.
 :::
 
-::: {.proof}
+::: {.proof name="Contradiction"}
+Suppose there exists such an $f$ which is not bounded.
+
 1. We define a sequence $\{x_n\}$ s.t. $\forall n \in \mathbb{N}$, choose $x_n \in [a,b]$ s.t. $|f(x_n)| > n$.
 2. Since $\{x_n\}$ is bounded, by [B-W](../Sequences-Series/sequences-series.qmd#thm-bolzano-weierstrass){.quarto-xref} there exists a convergent subsequence $\{x_{n_k}\}$. Let $x_{n_k} \to \ell \in [a,b]$.
 3. By [definition of continuity](#def-continuity){.quarto-xref}, $x_{n_k} \to \ell$, so $f(x_{n_k}) \to f(\ell)$.
