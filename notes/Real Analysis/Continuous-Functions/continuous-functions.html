@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-0970e7028e5f0ef0218f96849819c950.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-4e53ae900c1b057c5051123e6d4b2ab7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -231,7 +231,7 @@ window.Quarto = {
 </ul>
 </div>
 <div id="prp-cluster-point-sequence" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4.2</strong></span> <span class="math inline">\(x \in \mathbb{R}\)</span> is a cluster point of <span class="math inline">\(S\)</span> iff <span class="math inline">\(\exists\)</span> a convergent sequence <span class="math inline">\(\{x_n\}\)</span> s.t. <span class="math inline">\(\forall n \in \mathbb{N}\)</span>, <span class="math inline">\(x_n \neq x\)</span> and <span class="math inline">\(x_n \in S\)</span>, and <span class="math inline">\(\lim x_n = x\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 4.2</strong></span> <span class="math inline">\(x \in \mathbb{R}\)</span> is a cluster point of <span class="math inline">\(S\)</span> if and only if <span class="math inline">\(\exists\)</span> a convergent sequence <span class="math inline">\(\{x_n\}\)</span> s.t. <span class="math inline">\(\forall n \in \mathbb{N}\)</span>, <span class="math inline">\(x_n \neq x\)</span> and <span class="math inline">\(x_n \in S\)</span>, and <span class="math inline">\(\lim x_n = x\)</span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>(<span class="math inline">\(\Rightarrow\)</span>) If <span class="math inline">\(x\)</span> is a cluster point of <span class="math inline">\(S\)</span>, then <span class="math inline">\(((x - \frac{1}{n}, x + \frac{1}{n}) \setminus \{x\}) \cap S\)</span> is always non empty. Then, we can repeatedly pick <span class="math inline">\(x_n\)</span> from the set so that <span class="math inline">\(|x - x_n| &lt; \frac{1}{n} \Rightarrow x_n \to x\)</span>.</p>
@@ -267,7 +267,7 @@ Then, <span class="math inline">\(f(x)\)</span> converges to <span class="math i
 </div>
 <p>We can also relate the limit of a function with sequential limits using the <a href="#prp-cluster-point-sequence" class="quarto-xref">sequential limit definition of cluster points</a>:</p>
 <div id="lem-sequential-limit" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 4.4</strong></span> <span class="math inline">\(f(x) \to L\)</span> as <span class="math inline">\(x \to c\)</span> iff for every sequence <span class="math inline">\(\{x_n\}\)</span> where <span class="math inline">\(x_n \in S \setminus \{c\}\)</span> and <span class="math inline">\(x_n \to c\)</span>, <span class="math inline">\(\{f(x_n)\}\)</span> converges to <span class="math inline">\(L\)</span>.</p>
+<p><span class="theorem-title"><strong>Lemma 4.4</strong></span> <span class="math inline">\(f(x) \to L\)</span> as <span class="math inline">\(x \to c\)</span> if and only if for every sequence <span class="math inline">\(\{x_n\}\)</span> where <span class="math inline">\(x_n \in S \setminus \{c\}\)</span> and <span class="math inline">\(x_n \to c\)</span>, <span class="math inline">\(\{f(x_n)\}\)</span> converges to <span class="math inline">\(L\)</span>.</p>
 </div>
 <p>This allows us to apply the properties of sequential limits to <span class="math inline">\(\{f(x_n)\}\)</span>,</p>
 </section>
@@ -292,8 +292,8 @@ Then, <span class="math inline">\(f(x)\)</span> converges to <span class="math i
 </ul>
 </div>
 <div id="prp-continuity" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 4.6</strong></span> I. If <span class="math inline">\(c\)</span> is a cluster point of <span class="math inline">\(S\)</span>, then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> iff <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> exists and is equal to <span class="math inline">\(f(c)\)</span>.</p>
-<p>II. <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> iff for every sequence <span class="math inline">\(\{x_n\}\)</span> where <span class="math inline">\(x_n \in S\)</span> and <span class="math inline">\(x_n \to c\)</span>, <span class="math inline">\(f(x_n) \to f(c)\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 4.6</strong></span> I. If <span class="math inline">\(c\)</span> is a cluster point of <span class="math inline">\(S\)</span>, then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> if and only if <span class="math inline">\(\lim\limits_{x \to c} f(x)\)</span> exists and is equal to <span class="math inline">\(f(c)\)</span>.</p>
+<p>II. <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span> if and only if for every sequence <span class="math inline">\(\{x_n\}\)</span> where <span class="math inline">\(x_n \in S\)</span> and <span class="math inline">\(x_n \to c\)</span>, <span class="math inline">\(f(x_n) \to f(c)\)</span>.</p>
 <p>III. If <span class="math inline">\(c\)</span> is NOT a cluster point of <span class="math inline">\(S\)</span>, then <span class="math inline">\(f\)</span> is continuous at <span class="math inline">\(c\)</span>.</p>
 </div>
 <div class="proof">

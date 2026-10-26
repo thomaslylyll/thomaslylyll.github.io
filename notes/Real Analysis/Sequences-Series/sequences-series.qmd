@@ -9,7 +9,7 @@ $x_n \to x$ if $\forall \varepsilon > 0$, $\exists\, N \in \mathbb{N}$ s.t. $\fo
 :::
 
 ::: {#thm-monotone-convergence name="Monotone Convergence"}
-A monotone sequence $\{x_n\}_{n=1}^{\infty}$ is bounded iff it is convergent.
+A monotone sequence $\{x_n\}_{n=1}^{\infty}$ is bounded if and only if it is convergent.
 
 If $\{x_n\}$ is increasing then $\lim x_n = \sup\{x_n : n \in \mathbb{N}\}$.
 If $\{x_n\}$ is decreasing then $\lim x_n = \inf\{x_n : n \in \mathbb{N}\}$.
@@ -134,7 +134,7 @@ A series whose sequence of partial sums form a cauchy sequence.
 :::
 
 ::: {#prp-cauchy-series}
-A series $\sum_{n=1}^{\infty} x_n$ is convergent iff $\forall \varepsilon > 0$, $\exists\, M \in \mathbb{N}$ s.t. $\forall n \geq M$ and $k > n$, $\left|\sum_{i=n+1}^{k} x_i\right| < \varepsilon$.
+A series $\sum_{n=1}^{\infty} x_n$ is convergent if and only if $\forall \varepsilon > 0$, $\exists\, M \in \mathbb{N}$ s.t. $\forall n \geq M$ and $k > n$, $\left|\sum_{i=n+1}^{k} x_i\right| < \varepsilon$.
 :::
 
 ::: {.proof}
@@ -198,7 +198,7 @@ $$
 L = \limsup_{n\to\infty} \left| a_n (x - x_0)^n \right|^{1/n} = \limsup |a_n|^{1/n} \cdot |x - x_0|
 $$
 $$
-L < 1 \quad \text{iff} \quad |x - x_0| < \left[ \limsup |a_n|^{\frac{1}{n}} \right]^{-1}.
+L < 1 \iff |x - x_0| < \left[ \limsup |a_n|^{\frac{1}{n}} \right]^{-1}.
 $$
 
 Radius of convergence $\displaystyle R = \frac{1}{\limsup |a_n|^{1/n}}$ [$\square$]{style="float: right;"}

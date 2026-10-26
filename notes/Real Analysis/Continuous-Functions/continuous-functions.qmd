@@ -23,7 +23,7 @@ i.e. for any arbitrary $\varepsilon > 0$, the $\varepsilon$-neighborhood of $x$,
 :::
 
 ::: {#prp-cluster-point-sequence}
-$x \in \mathbb{R}$ is a cluster point of $S$ iff $\exists$ a convergent sequence $\{x_n\}$ s.t. $\forall n \in \mathbb{N}$, $x_n \neq x$ and $x_n \in S$, and $\lim x_n = x$.
+$x \in \mathbb{R}$ is a cluster point of $S$ if and only if $\exists$ a convergent sequence $\{x_n\}$ s.t. $\forall n \in \mathbb{N}$, $x_n \neq x$ and $x_n \in S$, and $\lim x_n = x$.
 :::
 
 ::: {.proof}
@@ -57,7 +57,7 @@ $$
 We can also relate the limit of a function with sequential limits using the [sequential limit definition of cluster points](#prp-cluster-point-sequence){.quarto-xref}:
 
 ::: {#lem-sequential-limit}
-$f(x) \to L$ as $x \to c$ iff for every sequence $\{x_n\}$ where $x_n \in S \setminus \{c\}$ and $x_n \to c$, $\{f(x_n)\}$ converges to $L$.
+$f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}$ where $x_n \in S \setminus \{c\}$ and $x_n \to c$, $\{f(x_n)\}$ converges to $L$.
 :::
 
 This allows us to apply the properties of sequential limits to $\{f(x_n)\}$,
@@ -88,9 +88,9 @@ Comparison with limit definition at a point $c$:
 :::
 
 ::: {#prp-continuity}
-I\. If $c$ is a cluster point of $S$, then $f$ is continuous at $c$ iff $\lim\limits_{x \to c} f(x)$ exists and is equal to $f(c)$.
+I\. If $c$ is a cluster point of $S$, then $f$ is continuous at $c$ if and only if $\lim\limits_{x \to c} f(x)$ exists and is equal to $f(c)$.
 
-II\. $f$ is continuous at $c$ iff for every sequence $\{x_n\}$ where $x_n \in S$ and $x_n \to c$, $f(x_n) \to f(c)$.
+II\. $f$ is continuous at $c$ if and only if for every sequence $\{x_n\}$ where $x_n \in S$ and $x_n \to c$, $f(x_n) \to f(c)$.
 
 III\. If $c$ is NOT a cluster point of $S$, then $f$ is continuous at $c$.
 :::
